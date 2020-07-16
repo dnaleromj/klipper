@@ -100,15 +100,10 @@ fail:
     shutdown("Unable to config pwm device");
 }
 
-
 void gpio_pwm_write(struct gpio_pwm g, uint16_t val)
 {
     char scratch[16];
     uint32_t duty_cycle = g.period * (uint64_t)val / MAX_PWM;
-    snprintf(scratch, sizeof(scratch), "%u", duty_cycle);
-    if (g.fd != -1) {
-        write(g.fd, scratch, strlen(scratch));
-    } else {
-        report_errno("pwm set duty_cycle", g.fd);
-    }
+    int len = snprintf(scratch, sizeof(scratch), "%u", duty_cycle);
+    write(g.fd, scratch, len + 1);
 }
