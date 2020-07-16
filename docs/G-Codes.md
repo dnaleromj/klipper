@@ -258,8 +258,8 @@ sections are enabled:
 
 The following commands are available when a "servo" config section is
 enabled:
-- `SET_SERVO SERVO=config_name [WIDTH=<seconds>] [ENABLE=<0|1>]`
-- `SET_SERVO SERVO=config_name [ANGLE=<degrees>] [ENABLE=<0|1>]`
+- `SET_SERVO SERVO=config_name [WIDTH=<seconds>]`
+- `SET_SERVO SERVO=config_name [ANGLE=<degrees>]`
 
 ## Manual stepper Commands
 
